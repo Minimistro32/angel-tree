@@ -1,0 +1,47 @@
+
+/* Create PokemonGb font from downloaded ttf file */
+@font-face {
+    font-family: 'PokemonGb';
+    src: url('../fonts/PokemonGb-RAeo.ttf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: PokemonHeading;
+    src: url("../fonts/PokemonSolidNormal-xyWR.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Save colors into variables */
+:root {
+    --main-red: #FF0000;
+    --sub-red: #CC0000;
+    --main-blue: #3B4CCA;
+    --main-yellow: #FFDE00;
+    --sub-yellow: #B3A125;
+}
+
+body {
+    margin: 0;
+}
+
+/* Navigation bar styles */
+
+#nav-bar ul {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: PokemonHeading;
+    list-style: none;
+    margin: 0 auto;
+}
+
+#nav-bar li a {
+    font-size: 20pt;
+    text-shadow: 0 0 4px var(--main-blue);
+    color: var(--main-yellow);
+    text-decoration: none;
+
+}
