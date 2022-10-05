@@ -9,17 +9,24 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <script type="module" src="./scripts/main.js" defer></script>
 </head>
 <body>
     <header>
-        <nav id="nav-bar">
+        <button id="menu-button">
+            Menu &#9776;
+        </button>
+        <nav id="nav-bar" class="remove">
             <ul>
+                
                 <li>
                     <a href="#">Home</a>
                 </li>
+                <hr>
                 <li>
                     <a href="pages/sitemap.html">Sitemap</a>
                 </li>
+                <hr>
                 <li>
                     <a href="pages/team.html">Team</a>
                 </li>
@@ -27,12 +34,18 @@
         </nav>
     </header>
     <main>
-        <section id="filter-section">
-            
-        </section>
-        <section id="results">
-            
-        </section>
+        <div id="content">
+            <section id="results">
+                <p class="loading">Loading...</p>
+            </section>
+
+            <section id="filter">
+                <p>Filter section</p>
+            </section>
+            <section id="team">
+                <p>Team section</p>
+            </section>
+        </div>
     </main>
     <footer>
     

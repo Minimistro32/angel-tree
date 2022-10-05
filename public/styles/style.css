@@ -28,20 +28,107 @@ body {
     margin: 0;
 }
 
+html, body {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
 /* Navigation bar styles */
 
 #nav-bar ul {
-    display: flex;
-    justify-content: space-evenly;
+    padding: 0;
+    text-align: center;
     font-family: PokemonHeading;
     list-style: none;
     margin: 0 auto;
 }
 
-#nav-bar li a {
+#nav-bar li {
+    padding: 15px 0;
+}
+
+#nav-bar li a, #nav-bar li {
     font-size: 20pt;
     text-shadow: 0 0 4px var(--main-blue);
     color: var(--main-yellow);
     text-decoration: none;
 
+}
+
+#menu-button {
+    text-shadow: 0 0 4px var(--main-blue);
+    color: var(--main-yellow);
+    font-family: PokemonHeading;
+    width: 100%;
+    height: 77px;
+    font-size: 20pt;
+}
+
+.remove {
+    display: none;
+}
+
+
+/* Setup grid for main content  */
+
+#content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Styles for results section */
+
+#results {
+    grid-column: 1 / 3;
+    background-color: var(--main-blue);
+    max-width: 100%;
+    height: 1000px;
+    /* width: 100px; */
+}
+
+/* Styles for filter section */
+
+#filter {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--main-yellow);
+    height: 100px;
+    width: 100%;
+}
+
+/* Styles for team section  */
+
+#team {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--main-red);
+    height: 100px;
+    width: 100%;
+}
+
+/* Media query for medium screens */
+@media screen and (min-width: 800px) {
+    #nav-bar ul {
+    display: flex;
+    justify-content: space-evenly;
+    }
+}
+
+
+
+/* Animations */
+
+@keyframes loading {
+    0% { opacity: 100%;}
+    50% {opacity: 10%;}
+    100% {opacity: 100%;}
+}
+
+.loading {
+    animation-name: loading;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
 }
