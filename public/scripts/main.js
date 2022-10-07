@@ -1,8 +1,15 @@
-import { toggleNav } from "./nav.js";
+import UserInterface from "./user-interface.js";
 import Pokemon from "./pokemon.js";
 
-const pokemon = new Pokemon()
+const UI = new UserInterface()
+UI.generateTypeButtons("type-list")
+// Navigation bar 
+UI.toggleMenu("menu-button", "nav-bar");
+// Filter menu
+UI.toggleMenu("open-filter", "filter-menu");
 
-pokemon.fetchPokemon("https://pokeapi.co/api/v2/pokemon/pikachu")
+if (UI.filterType !== 0) {
+    const pokemon = new Pokemon(`https://pokeapi.co/api/v2/type/${UI.filterType}`);
+}
 
-toggleNav()
+

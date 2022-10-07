@@ -10,9 +10,27 @@
     <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <script type="module" src="./scripts/main.js" defer></script>
+
+    <template id="poke-output">
+        <li>
+            <div>
+                <img class="poke-sprite" src="" alt="pokemon sprite">
+            </div>
+            <p class="poke-name"></p>
+            <ul class="stats">
+                <li class="hp"></li>
+                <li class="attack"></li>
+                <li class="defense"></li>
+                <li class="special-attack"></li>
+                <li class="special-defense"></li>
+                <li class="speed"></li>
+            </ul>
+        </li>
+    </template>
 </head>
 <body>
     <header>
+        
         <button id="menu-button">
             Menu &#9776;
         </button>
@@ -22,11 +40,9 @@
                 <li>
                     <a href="#">Home</a>
                 </li>
-                <hr>
                 <li>
                     <a href="pages/sitemap.html">Sitemap</a>
                 </li>
-                <hr>
                 <li>
                     <a href="pages/team.html">Team</a>
                 </li>
@@ -35,12 +51,17 @@
     </header>
     <main>
         <div id="content">
-            <section id="results">
-                <p class="loading">Loading...</p>
+            <section id="results-section">
+                <ul id="results"></ul>
             </section>
 
             <section id="filter">
-                <p>Filter section</p>
+                <div id="filter-menu" class="remove">
+                    <ul id="type-list">
+
+                    </ul>
+                </div>
+                <button id="open-filter">Filter Menu</button>
             </section>
             <section id="team">
                 <p>Team section</p>
