@@ -71,7 +71,32 @@ export default class UserInterface {
             unorderedList.appendChild(listItem);
         })        
            
-    }            
+    }      
+    
+    displayTeam() {
+
+        let pokemonInTeam = document.querySelectorAll(".poke-team");
+        for (let i = 0; i < pokemonInTeam.length; i++) {
+
+            let section = pokemonInTeam[i];
+            let nameElement = section.querySelector(".team-name");
+            let imgElement = section.querySelector(".team-sprite>img");
+            
+            if (localStorage.getItem(i)) {
+                let values = localStorage.getItem(i).split(",");
+                let valueName = values[0];
+                let valueImage = values[1];
+                nameElement.textContent = valueName;
+                imgElement.setAttribute("src", valueImage);
+                imgElement.setAttribute("alt", `Sprite for ${valueName}`);
+            } else {
+                nameElement.textContent = "";
+                imgElement.setAttribute("src", "");
+                imgElement.setAttribute("alt", "");
+            }
+            
+        }
+    }
 
 }
 
