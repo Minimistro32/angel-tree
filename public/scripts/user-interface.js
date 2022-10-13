@@ -89,6 +89,8 @@ export default class UserInterface {
                 nameElement.textContent = valueName;
                 imgElement.setAttribute("src", valueImage);
                 imgElement.setAttribute("alt", `Sprite for ${valueName}`);
+                section.addEventListener("click", () => {
+                })
             } else {
                 nameElement.textContent = "";
                 imgElement.setAttribute("src", "");

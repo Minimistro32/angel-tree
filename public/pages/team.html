@@ -9,23 +9,55 @@
     <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
 
     <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/team.js" type="module" defer></script>
 
+    <template id="team-page-template">
+        <section class="team-card">
+            <div class="team-card-sprite">
+                <img src="" alt="">
+            </div>
+            <p class="team-card-name"></p>
+            <ul class="stats">
+                <li class="hp"></li>
+                <li class="attack"></li>
+                <li class="defense"></li>
+                <li class="special-attack"></li>
+                <li class="special-defense"></li>
+                <li class="speed"></li>
+            </ul>
+        </section>
+    </template>
 </head>
 <body>
     <header>
-        <nav id="nav-bar">
+        
+        <button id="menu-button">
+            Menu &#9776;
+        </button>
+        <nav id="nav-bar" class="remove">
             <ul>
+                
                 <li>
                     <a href="../index.html">Home</a>
                 </li>
                 <li>
                     <a href="./sitemap.html">Sitemap</a>
                 </li>
-                <li><a href="#">Team</a></li>
+                <li>
+                    <a href="#">Team</a>
+                </li>
             </ul>
         </nav>
     </header>
-<body>
+    <main>
+        <div id="content-team-page">
+            <button class="clear-team">Clear Team</button>
+            <section class="team-page">
+
+            </section>
+        </div>
+    </main>
+    
     
 </body>
 </html>

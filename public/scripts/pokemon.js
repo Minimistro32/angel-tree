@@ -17,8 +17,7 @@ export default class Pokemon {
         } else if (this.URL.includes("generation")){
             this.fetchPokemonByGeneration()
         } else {
-            console.log("fetching all pokemon")
-            this.fetchPokemonAll()
+            this.displayTeamPage();
         }
 
 
@@ -44,7 +43,21 @@ export default class Pokemon {
             this.displayPokemon(p)
         })
     }
-
+    
+    async fetchPokemon(url) {
+        try {
+            const response = await fetch(url);
+            if (response.ok) {
+                return await response.json();
+            } else {
+                const error = await response.text();
+                throw new Error(error);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    
     addToTeam(name, spriteURL) {
         // Adds the name and sprite URL to a list in local storage to be accessed and displayed in the team section.
         try {        
@@ -55,8 +68,6 @@ export default class Pokemon {
                  console.log("add to team");
                 } else {
                     // If there is six in local storage, then throw an error
-                    this.length_of_team = 0;
-                    localStorage.clear();
                     throw new Error("You cannot have more than 6 pokemon on a team.")
                 }
         } catch (err) {
@@ -96,16 +107,14 @@ export default class Pokemon {
         // Create add team button
         const teamButton = templateClone.querySelector(".team-button");
         teamButton.addEventListener("click", () => {
-            if (teamButton.innerText === "Add") {
-                teamButton.setAttribute("data-index", this.length_of_team);
-                this.addToTeam(pokemon.name, spriteURL);
-                teamButton.textContent = "Remove";
-                this.UI.displayTeam();
-            } else {
-                this.removeFromTeam(teamButton.dataset.index);
-                teamButton.textContent = "Add";
-                this.UI.displayTeam();
-            }
+            teamButton.setAttribute("data-index", this.length_of_team);
+            this.addToTeam(pokemon.name, spriteURL);
+            this.UI.displayTeam();
+            // } else {
+            //     this.removeFromTeam(teamButton.dataset.index);
+            //     teamButton.textContent = "Add";
+            //     this.UI.displayTeam();
+            // }
            
         });
         
@@ -117,20 +126,6 @@ export default class Pokemon {
     }
 
     
-    
-    async fetchPokemon(url) {
-        try {
-            const response = await fetch(url);
-            if (response.ok) {
-                return await response.json();
-            } else {
-                const error = await response.text();
-                throw new Error(error);
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    }
 
     displayStats(statsList, outputElement) {
         statsList.map(stat => {
@@ -139,5 +134,37 @@ export default class Pokemon {
             const listElement = outputElement.querySelector(`.${statName}`);
             listElement.textContent = `${statName}: ${statValue}`;
         })
+    }
+
+    async displayTeamPage() {
+        const clearButton = document.querySelector(".clear-team");
+        clearButton.addEventListener("click", () => {
+            localStorage.clear();
+            this.length_of_team = 0;
+            document.querySelector(".team-page").innerHTML = "";
+
+        })
+
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const template = document.querySelector("#team-page-template").content.cloneNode(true);
+            let nameValue = localStorage.getItem(i).split(",")[0];
+            const data = await this.fetchPokemon(`https://pokeapi.co/api/v2/pokemon/${nameValue}`);
+            
+            console.log(data);
+
+            const nameElement = template.querySelector(".team-card-name");
+            nameElement.textContent = data.name;
+
+            const spriteElement = template.querySelector(".team-card-sprite>img");
+            const spriteURL = data.sprites.front_default;
+            spriteElement.setAttribute("src", spriteURL);
+            spriteElement.setAttribute("alt", `Sprite for ${data.name}`)
+
+            this.displayStats(data.stats, template);
+
+            const team = document.querySelector(".team-page");
+            team.appendChild(template);
+        }
     }
 }
