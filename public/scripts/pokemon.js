@@ -162,9 +162,39 @@ export default class Pokemon {
             spriteElement.setAttribute("alt", `Sprite for ${data.name}`)
 
             this.displayStats(data.stats, template);
+            this.displayMoves(data.moves, template);
+
+            const typesElement = template.querySelector(".team-card-types");
+            for (let i=0; i < data.types.length; i++) {
+                let newType = document.createElement("li");
+                newType.textContent = data.types[i].type.name;
+                typesElement.appendChild(newType);
+            }
 
             const team = document.querySelector(".team-page");
             team.appendChild(template);
+        }
+    }
+
+    displayMoves(moveList, outputElement) {
+        // for each move in moveList create an option element and append it to the selection element
+        for (let i=0; i < moveList.length; i++) {
+            let newMove = moveList[i].move.name;
+            let moveSelection = document.createElement("option");
+            moveSelection.setAttribute("value", newMove);
+            moveSelection.textContent = newMove;
+
+            // create a clone of each move for each move slot
+            let move2Selection = moveSelection.cloneNode(true);
+            let move3Selection = moveSelection.cloneNode(true);
+            let move4Selection = moveSelection.cloneNode(true);
+
+            // append each move to the selection element
+            outputElement.querySelector("#move1").appendChild(moveSelection);
+            outputElement.querySelector("#move2").appendChild(move2Selection);
+            outputElement.querySelector("#move3").appendChild(move3Selection);
+            outputElement.querySelector("#move4").appendChild(move4Selection);
+
         }
     }
 }
