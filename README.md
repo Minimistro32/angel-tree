@@ -9,7 +9,7 @@ The purpose for writing this software was to become more proficient in web devel
 
 Here is a link to a YouTube video of me walking through the software.
 
-[Software Demo Video](http://youtube.link.goes.here) \
+[Software Demo Video](https://youtu.be/Ellk60rbRIQ) \
 [Software Hosted on Github Pages](https://sawilding.github.io/pokemon-team-builder/public/index.html)
 
 # Web Pages
