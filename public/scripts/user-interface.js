@@ -94,7 +94,6 @@ export default class UserInterface {
             } else {
                 nameElement.textContent = "";
                 imgElement.setAttribute("src", "");
-                imgElement.setAttribute("alt", "");
             }
             
         }

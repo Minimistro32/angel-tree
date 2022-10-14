@@ -7,16 +7,18 @@
     <meta name="description" content="Pokemon wiki site created using NodeJS and PokeAPI">
 
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="./styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <script type="module" src="./scripts/main.js" defer></script>
 
     <template id="poke-output">
         <li>
             <div>
-                <img class="poke-sprite" src="" alt="pokemon sprite">
+                <div>
+                    <img class="poke-sprite" src="" alt="pokemon sprite">
+                </div>
+                <p class="poke-name"></p>
             </div>
-            <p class="poke-name"></p>
             <ul class="stats">
                 <li class="hp"></li>
                 <li class="attack"></li>
@@ -33,7 +35,7 @@
     <template id="team-template">
         <div class="poke-team">
             <div class="team-sprite">
-                <img src="" alt="">
+                <img src="./images/pokeball.png" alt="Pokeball image">
             </div>
             <p class="team-name">Pokemon Name</p>
         </div>
@@ -74,44 +76,47 @@
                 </div>
                 <button id="open-filter">Filter Menu</button>
             </section>
-            <section id="team">
-                <div class="poke-team">
-                    <div class="team-sprite">
-                        <img src="" alt="">
+            <section id="team-output">
+                <div id="team" class="remove">
+                    <div class="poke-team">
+                        <div class="team-sprite">
+                            <img src="" alt="">
+                        </div>
+                        <p class="team-name"></p>
                     </div>
-                    <p class="team-name"></p>
-                </div>
-                <div class="poke-team">
-                    <div class="team-sprite">
-                        <img src="" alt="">
+                    <div class="poke-team">
+                        <div class="team-sprite">
+                            <img src="" alt="">
+                        </div>
+                        <p class="team-name"></p>
                     </div>
-                    <p class="team-name"></p>
-                </div>
-                <div class="poke-team">
-                    <div class="team-sprite">
-                        <img src="" alt="">
+                    <div class="poke-team">
+                        <div class="team-sprite">
+                            <img src="" alt="">
+                        </div>
+                        <p class="team-name"></p>
                     </div>
-                    <p class="team-name"></p>
-                </div>
-                <div class="poke-team">
-                    <div class="team-sprite">
-                        <img src="" alt="">
+                    <div class="poke-team">
+                        <div class="team-sprite">
+                            <img src="" alt="">
+                        </div>
+                        <p class="team-name"></p>
                     </div>
-                    <p class="team-name"></p>
-                </div>
-                <div class="poke-team">
-                    <div class="team-sprite">
-                        <img src="" alt="">
+                    <div class="poke-team">
+                        <div class="team-sprite">
+                            <img src="" alt="">
+                        </div>
+                        <p class="team-name"></p>
                     </div>
-                    <p class="team-name"></p>
-                </div>
-                <div class="poke-team">
-                    <div class="team-sprite">
-                        <img src="" alt="">
+                    <div class="poke-team">
+                        <div class="team-sprite">
+                            <img src="" alt="">
+                        </div>
+                        <p class="team-name"></p>
                     </div>
-                    <p class="team-name"></p>
+                    
                 </div>
-
+                <button id="open-team">Team</button>
             </section>
         </div>
     </main>

@@ -8,6 +8,8 @@ UI.toggleMenu("menu-button", "nav-bar");
 // Filter menu
 UI.toggleMenu("open-filter", "filter-menu");
 
+UI.toggleMenu("open-team", "team")
+
 window.onload = () => {
     UI.displayTeam();
 }

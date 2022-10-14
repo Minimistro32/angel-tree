@@ -67,7 +67,20 @@ main {
 
 }
 
+#nav-bar {
+    width: 100%;
+    position: fixed;
+    top: 77px;
+    z-index: 5;
+    background-color: white;
+    text-align: center;
+}
+
 #menu-button {
+    position: fixed;
+
+    top: 0;
+    display: initial;
     text-shadow: 0 0 4px var(--main-blue);
     color: var(--main-yellow);
     font-family: PokemonHeading;
@@ -91,6 +104,7 @@ main {
 /* Styles for results section */
 
 #results-section {
+    margin-top: 100px;
     grid-column: 1 / 3;
 
 }
@@ -105,10 +119,10 @@ main {
     max-width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 0.5fr;
+    grid-template-columns: 1fr 2fr 0.5fr;
 }
 
-#results div {
+#results>li {
     border: 3px solid black;
 }
 
@@ -117,23 +131,29 @@ main {
     margin: 0 auto;
 }
 
-.stats {
-    border: 3px solid black;
-    margin: 0;
-    list-style: none;
-    font-size: 10pt;
+.poke-sprite>img {
+    max-width: 100%;
 }
 
+.stats {
+    border-left: 3px solid black;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    font-size: 10pt;
+    padding-left: 5px;
+}
+
+
 .poke-name {
-    display: inline;
+    font-size: 10pt;
     text-align: center;
-    border: 3px solid black;
     margin: 0;
-    padding: 35px 0 35px;
+
 }
 
 .team-button {
-    border: 3px solid black;
+    border-left: 3px solid black;
     background-color: var(--sub-yellow);
 }
 
@@ -144,18 +164,21 @@ main {
 /* Styles for filter section */
 
 #filter {
-    position: -webkit-sticky;
+    /* position: -webkit-sticky;
     position: sticky;
-    bottom: 0;
+    bottom: 0; */
+    position: fixed;
+    bottom: 0px;
     height: auto;
-    width: 100%;
+    width: 50%;
+    right: 50%;
 }
 
 #open-filter {
     border: 3px solid var(--main-blue);
     background-color: white;
     width: 100%;
-    height: 156px;
+    height: 70px;
     padding: 0;
 }
 
@@ -170,6 +193,7 @@ main {
 }
 
 #type-list {
+
     list-style: none;
     padding: 0;
 }
@@ -203,7 +227,7 @@ main {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    height: 45px;
+    height: auto;
 }
 
 .poke-team > p {
@@ -213,28 +237,39 @@ main {
 }
 
 #team {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 100px;
+
     border: 3px solid var(--main-red);
-    position: -webkit-sticky;
-    position: sticky;
-    bottom: 0;
     background-color: white;
-    height: 150px;
+    height: auto;
     width: 100%;
+}
+
+#team-output {
+
+    position: fixed;
+    bottom: 0; 
+    left: 50%;
+    width: 50%;   
+}
+
+#open-team {
+
+    border: 3px solid var(--main-red);
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    padding: 0;    
 }
 
 /* Team page styles */
 
 #content-team-page {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 100px auto 0;
 }
 
 .team-page {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: block;
 }
 
 .team-card {
@@ -242,9 +277,39 @@ main {
     border: 3px solid black;
 }
 
-/* Media query for medium screens */
-@media screen and (min-width: 800px) {
+.team-card-sprite, .team-card-name {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
 
+.team-card-types {
+    border-top: 3px solid black;
+    margin: 0;
+    list-style: none;
+    font-size: 10pt;
+}
+
+.team-card-stats {
+    border-top: 3px solid black;
+    margin: 0;
+    list-style: none;
+    font-size: 10pt;
+}
+
+.moves {
+    border-top: 3px solid black;
+    font-size: 10pt;
+    padding: 0 0 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Media query for medium screens */
+@media screen and (min-width: 1000px) {
+    #results-section {
+        margin-top: 100px;
+    }
     #nav-bar ul {
         margin: 0;
         display: flex;
@@ -252,7 +317,8 @@ main {
     }
 
     #nav-bar {
-        display: initial;
+        display: block;
+        top: 0;
     }
 
     #menu-button {
@@ -263,6 +329,27 @@ main {
         margin: 0 auto;
         max-width: 1400px;
     }
+
+    .team-page {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #team-output {
+        /* position: -webkit-sticky;
+        position: sticky;
+        bottom: 0;
+        width: 100%; */
+        max-width: 500px;
+    }
+    #filter {
+        /* position: -webkit-sticky;
+        position: sticky;
+        bottom: 0;
+        width: 100%; */
+        max-width: 500px;
+    }
+
 }
 
 
