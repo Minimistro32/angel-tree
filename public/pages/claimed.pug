@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Gift #{id} - Claimed
+  body
+    h1 Gift #{id}
+    p Thank You! This gift has been given.
+    a(href = `${nextUrl}`)
+      button Pick a Gift!
+    a(href='/contribute/')
+      button Contribute Directly

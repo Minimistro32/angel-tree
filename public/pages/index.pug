@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Giving Tree
+  body
+    h1 The<br>Giving Tree
+    if count > 15
+        h2 Gifts Given
+        div #{count}
+    img(src="/images/tree.png", width="100px")
+    
+    a(href = `${nextUrl}`)
+      button Pick a Gift!
+    a(href='/contribute/')
+      button Contribute Directly
+
+    p The classic tradition reimagined...

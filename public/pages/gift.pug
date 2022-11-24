@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title Gift #{id}
+  body
+    h1 Gift #{id}
+    if img
+      img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px")
+    if desc
+      p Description: #{desc}
+    if suggest_price
+      p Suggested Price: #{suggest_price}
+    if url
+      p URL: #{url}
+
+    hr
+
+    form(method="post")
+      fieldset 
+        legend Claim this Gift
+        label(for="commit_price") Price:
+        input(type="number", name="commit_price", min=0, step="any")
+        if !url
+          label(for="url") URL:
+          input(type="url", name="url")
+        label(for="delivery_msg") Delivery Msg:
+        textarea(name="delivery_msg", cols="30", rows="1") 
+        label(for="venmo") Venmo:
+        input(type="text", name="venmo", required)
+        
+        input(type="submit", value="Claim")
+
+    hr
+
+    a(href = `${nextUrl}`)
+      button Pick a Gift!
+    a(href='/contribute/')
+      button Contribute Directly
