@@ -9,7 +9,7 @@ module.exports = {
     selectAll,
     selectUnclaimed,
     countClaimed,
-    // update,
+    update,
     del,
     truncate
 };
@@ -22,8 +22,8 @@ async function create(gift) {
 }
 
 // READ
-function selectAll() {
-    return db('gift');
+async function selectAll() {
+    return await db('gift');
 }
 
 async function select(id, columns=null) {
@@ -48,23 +48,23 @@ async function countClaimed() {
 }
 
 // todo: UPDATE video 11 - https://www.youtube.com/watch?v=JWMf7AUzMkA&list=PLKii3VqdFnoZY6EBxb2K37D0wrEmS-5RD&index=11
-// function update(id, changes) {
-//     console.log("DB UPDATE " + id + "\n", changes);
-//     return db('gift')
-//         .where('id', id)
-//         .update(changes)
-//         .then(() => {
-//             return select(id);
-//         });
-// }
-
-// DELETE 
-function del(id) {
-    console.log("DB DELETE " + id);
-    return db('gift').where('id', id).del();
+function update(id, changes) {
+    console.log("DB UPDATE " + id + "\n", changes);
+    return db('gift')
+        .where('id', id)
+        .update(changes)
+        .then(() => {
+            return select(id);
+        });
 }
 
-function truncate() {
+// DELETE 
+async function del(id) {
+    console.log("DB DELETE " + id);
+    return await db('gift').where('id', id).del();
+}
+
+async function truncate() {
     console.log("DB TRUNCATE");
-    return db('gift').truncate();
+    return await db('gift').truncate();
 }

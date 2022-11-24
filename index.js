@@ -71,7 +71,7 @@ server.get("/gift/:id", (req, res) => {
 });
 
 server.post("/gift/:id", (req, res) => {
-  console.log(req.body);
+  queries.update(req.params.id, req.body)
   renderGift(req.params.id, res);
 });
 
@@ -88,25 +88,25 @@ server.get("/api/gift/:id", (req, res) => {
   })
 });
 
-// server.patch("/api/gift/:id", (req, res) => {
-//   queries.update(req.params.id, req.body)
-//   .then(gift => {
-//     if (gift) {
-//       res.status(200).json(gift);
-//     } else {
-//       res.status(404).json({message: "Record not found. PATCH /api/gift/"+req.params.id});
-//     }
-//   })
-//   .catch(err => {
-//     console.log(err);
-//     res.status(500).json({message: "Query update failed. PATCH /api/gift/"+req.params.id});
-//   })
-// });
+server.patch("/api/gift/:id", (req, res) => {
+  queries.update(req.params.id, req.body)
+  .then(gift => {
+    if (gift) {
+      res.status(204).json();
+    } else {
+      res.status(404).json({message: "Record not found. PATCH /api/gift/"+req.params.id});
+    }
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({message: "Query update failed. PATCH /api/gift/"+req.params.id});
+  })
+});
 
 server.delete("/api/gift/:id", (req, res) => {
   queries.del(req.params.id)
   .then(_ => {
-    res.status(200).json();
+    res.status(204).json();
   })
   .catch(err => {
     console.log(err);
@@ -127,10 +127,8 @@ server.post("/api/gift", (req, res) => {
 });
 
 server.get("/api/gift", (_, res) => {
-  // queries.selectAll()
-  queries.selectUnclaimed()
+  queries.selectAll()
   .then(gifts => {
-    console.log(gifts);
     res.status(200).json(gifts);
   })
   .catch(err => {
