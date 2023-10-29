@@ -19,7 +19,13 @@ server.get("/", (_, res) => {
   data = {nextUrl: '/', count: 0};
   queries.selectUnclaimed()
   .then(unclaimedGifts => {
-    data.nextUrl = '/gift/' + unclaimedGifts[Math.floor(Math.random() * unclaimedGifts.length)]["id"];
+
+    if (Object.keys(unclaimedGifts).length == 0) { //if unclaimedGifts is empty
+      data.nextUrl = "/claimed/";
+    } else {
+      data.nextUrl = '/gift/' + unclaimedGifts[Math.floor(Math.random() * unclaimedGifts.length)]["id"];
+    }
+
     queries.countClaimed()
     .then(count => {
       data.count = count;
@@ -41,12 +47,20 @@ server.get("/contribute/", (_, res) => {
   res.sendFile(__dirname + "/public/pages/contribute.html");
 });
 
+server.get("/claimed/", (_, res) => {
+  res.sendFile(__dirname + "/public/pages/all_claimed.html");
+});
+
 function renderGift(id, res) {
   queries.select(id)
   .then(gift => {
     queries.selectUnclaimed(exclude=id)
     .then(unclaimedGifts => {
-      gift.nextUrl = '/gift/' + unclaimedGifts[Math.floor(Math.random() * unclaimedGifts.length)]["id"];
+      if (Object.keys(unclaimedGifts).length == 0) { //if unclaimedGifts is empty
+        gift.nextUrl = "/claimed/";
+      } else {
+        gift.nextUrl = '/gift/' + unclaimedGifts[Math.floor(Math.random() * unclaimedGifts.length)]["id"];
+      }
     })
     .catch(err => {
       console.log(err);
