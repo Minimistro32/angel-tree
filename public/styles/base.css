@@ -1,0 +1,162 @@
+:root {
+    /* CSS HEX */
+    --vermilion: #dc4333ff;
+    --white: #ffffffff;
+    --pale-dogwood: #efd2c5ff;
+    --eerie-black: #1b2021ff;
+    --dark-spring-green: #306b34ff;
+}
+
+html,
+body,
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    padding-top: 4rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    white-space: nowrap;
+}
+
+.cursive {
+    font-family: "Dancing Script";
+    font-size: 2.5rem;
+}
+
+.capital-font {
+    font-family: "Inter";
+    font-size: small;
+}
+
+.type-font {
+    color: var(--pale-dogwood);
+    font-family: "Literata";
+    text-shadow: -2px 2px var(--vermilion);
+}
+
+header {
+    width: 100%;
+    height: 9rem;
+    background: var(--vermilion);
+}
+
+section {
+    margin: auto;
+}
+
+.image {
+    display: block;
+    margin: auto;
+    /* padding-right: 3rem; */
+    padding-top: 1rem;
+}
+
+.donate-btns {
+    text-align: center;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    border: black;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    border: 1px black;
+}
+
+.button {
+    background-color: var(--dark-spring-green);
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.tree-wrapper {
+    position: relative;
+    /* border: solid; */
+}
+
+.content-stars{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    /* border: solid green; */
+}
+
+.stars {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    animation-iteration-count: infinite;
+}
+
+.star-1 {
+    background-color: var(--vermilion);
+    top: 58%;
+    left: 57%;
+    animation-name: twinkle-1;
+    animation-duration: 1s;
+}
+
+.star-2 {
+    background-color: var(--pale-dogwood);
+    top: 25%;
+    left: 50%;
+    animation-name: twinkle-2;
+    animation-duration: 1s;
+}
+
+.star-3 {
+    background-color: var(--dark-spring-green);
+    top: 85%;
+    left: 39%;
+    animation-name: twinkle-3;
+    animation-duration: 1s;
+}
+
+@keyframes twinkle-1 {
+    50% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+}
+
+@keyframes twinkle-2 {
+    20% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+}
+
+@keyframes twinkle-3 {
+    70% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+}
+
+footer {
+    width: 100%;
+    height: 9rem;
+    background: var(--vermilion);
+    margin-top: 2rem;
+}
+
