@@ -8,6 +8,7 @@
     <title>Giving Tree</title>
     <link rel="stylesheet" type="text/css" href="../styles/normalize.css">
     <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/form.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Literata">
@@ -22,82 +23,43 @@
         </h1>
     </header>
     <main>
-        <section class="card">
-            <h2>You Can Make a difference!</h2>
-            <p>As a community you and I will be caring for Kids at Christmastime! I have seen and believe in the power
-                of community care and
-                compassion. One of the best ways to help is by supporting children during this holiday season, so they
-                may experience the warmth of
-                Christmas, just like every child should.
-            </p>
-            <div class="donate-btns">
-                <ul>
-                    <li>
-                        <a href="#donateInstructions" class="button ">Donate Instructions</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="card">
-            <h2>How Do I Donate Without the Headache?</h2>
-            <h3>Donate Money Directly</h3>
-            <p>As a community you and I will be caring for Kids at Christmastime! I have seen and believe in the power
-                of community care and
-                compassion. One of the best ways to help is by supporting children during this holiday season, so they
-                may experience the warmth of
-                Christmas, just like every child should.
-            </p>
-            <div class="donate-btns">
-                <ul>
-                    <li>
-                        <a href="#donateInstructions" class="button ">Donate Instructions</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="card" id="donateInstructions">
-            <h2>Donation Instructions</h2>
-            <h3>Venmo Instructions</h3>
-            <ol>
-                <li><strong>Set Up Your Own Venmo Account:</strong> If you don't already have a Venmo account, download
-                    the Venmo app from
-                    your mobile app store or visit the Venmo website. Sign up for an account and link it to your bank
-                    account or credit/debit card.</li>
-                <li><strong>Find the Recipient's Venmo Username:</strong> You'll need to know the Venmo username or
-                    email address of the person or organization you want to donate to. They must also have a Venmo
-                    account.</li>
-                <li><strong>Open the Venmo App:</strong> Launch the Venmo app on your mobile device or visit the Venmo
-                    website in your web browser.</li>
-                <li><strong>Initiate a Payment:</strong> In the Venmo app, tap on the "Pay or Request" button, or on the
-                    website, click on "Pay or Request" from the main menu.</li>
-                <li><strong>Enter the Recipient's Username or Email:</strong> In the "To" field, type in the Venmo
-                    username or email address of the recipient to whom you want to donate.</li>
-                <li><strong>Enter the Donation Amount:</strong> In the "Amount" field, enter the amount you wish to
-                    donate.</li>
-                <li><strong>Add a Note (Optional):</strong> You can include a note or a message to specify the purpose
-                    of your donation. For example, you can mention it's for a charity, fundraiser, or any other specific
-                    cause.</li>
-                <li><strong>Choose Your Payment Method:</strong> Select your preferred payment method, either your
-                    linked bank account or credit/debit card.</li>
-                <li><strong>Review and Confirm:</strong> Double-check the details to ensure they are correct. Then, tap
-                    the "Pay" button to confirm the donation.</li>
-                <li><strong>Review Transaction:</strong> After confirming, you will see a summary of the transaction.
-                    Verify the details one last time, and if everything looks correct, you can proceed to complete the
-                    transaction.</li>
-                <li><strong>Transaction Confirmation:</strong> Once the transaction is complete, you and the recipient
-                    will receive a notification confirming the donation.</li>
-            </ol>
-        </section>
+    <section class="card">
+      <h2>Gift Information</h2>
+      if img
+        img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="img")
+      if desc
+        h3 What this Kid is Hoping For: 
+        p #{desc}
+      if suggest_price
+        h3 Suggested Donation Amount: 
+        p #{suggest_price}
+      if url
+        h3 An example of what the Child is hoping for: 
+        p #{url}
+      </section>
 
-        <div class="donate-btns">
-            <ul>
-                <li>
-                    <a href="/" class="button">Return Home</a>
-                </li>
-                <li>
-                    <a href="/contribute/" class="button">Sponsor Kid</a>
-                </li>
-            </ul>
+      <form action="thankyou.html" method="post">
+            <fieldset>
+                <legend>Claim this Gift</legend>
+                <label class="top" for="commit_price">Donation Amount:* <input type="number" name="commit_price" min=0, step="any" required></label>
+                <label class="top" for="url">URL to Gift: <input type="url" id="url" name="url"required></label>
+                <label class="top" for="delivery_msg">Message to the Friend You're Sponsoring: <br> <textarea name="delivery_msg" cols="70" rows="10"></textarea></label>
+                <label class="top" for="email">venmo* <input type="venmo" id="venmo" name="venmo" required placeholder="Put your Venmo Here" ></label>
+            </fieldset>
+            <button type="submit" value="Claim" class="submitBtn" id="">Sponsor Kid</button>
+            
+      </form>
+
+      <div class="donate-btns">
+        <ul>
+          <li>
+              a(href = `${nextUrl}`, class="button") Pick a Different Gift!
+              <a href="/" ></a>
+          </li>
+          <li>
+              <a href="/contribute/" class="button">Donate Directly</a>
+          </li>
+        </ul>
         </div>
     </main>
 </body>
@@ -105,43 +67,3 @@
 </footer>
 
 </html>
-
-
-doctype html
-html
-  head
-    title Gift #{id}
-  body
-    h1 Gift #{id}
-    if img
-      img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px")
-    if desc
-      p Description: #{desc}
-    if suggest_price
-      p Suggested Price: #{suggest_price}
-    if url
-      p URL: #{url}
-
-    hr
-
-    form(method="post")
-      fieldset 
-        legend Claim this Gift
-        label(for="commit_price") Price:
-        input(type="number", name="commit_price", min=0, step="any")
-        if !url
-          label(for="url") URL:
-          input(type="url", name="url")
-        label(for="delivery_msg") Delivery Msg:
-        textarea(name="delivery_msg", cols="30", rows="1") 
-        label(for="venmo") Venmo:
-        input(type="text", name="venmo", required)
-        
-        input(type="submit", value="Claim")
-
-    hr
-
-    a(href = `${nextUrl}`)
-      button Pick a Gift!
-    a(href='/contribute/')
-      button Contribute Directly

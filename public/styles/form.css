@@ -1,39 +1,43 @@
-:root{
-    --darkRed: #9c2c13;
-    --formBlue: #445ba9;
-    --confirmation-green: #179220;
+:root {
+    margin: 0;
+    padding: 0;
+    /* CSS HEX */
+    --vermilion: #dc4333ff;
+    --white: #ffffffff;
+    --pale-dogwood: #efd2c5ff;
+    --eerie-black: #1b2021ff;
+    --dark-spring-green: #306b34ff;
 }
 
-main{
-    display: block;
-}
-
-.form {
-    margin-top: 0;
-    color: black;
-    text-align: center;
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 form fieldset {
-    margin: 0;
-    border: 1px solid var(--formBlue);
+    margin: 1rem 0;
+    border: 1px solid var(--eerie-black);
     border-radius: 10px;
     padding: .5rem 2%;
+    width: 21rem;
 }
-form legend{
-    color: #445ba9;
-    margin: 0 1rem;;
+
+form legend {
+    color: var(--eerie-black);
+    margin: 0 1rem;
     padding: 0 .5rem;
 }
 
-form label.top,form div{
+form label.top,
+form div {
     display: block;
     padding-top: 1rem;
-    color: #9c2c13;
+    color: var(--vermilion);
     font-size: .8rem;
 }
 
-form label.top input, form label.top select{
+form label.top input {
     display: block;
     font-size: 1rem;
     border: solid 1px #999;
@@ -41,11 +45,11 @@ form label.top input, form label.top select{
     padding: .75rem;
     color: #555;
     width: 100%;
-    max-width: 20rem;
-    background-color: rgba(0,0,0,0.1);
+    max-width: 19rem;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-form label.sbs{
+form label.sbs {
     display: block;
     padding: .75rem 0;
     color: #555;
@@ -53,27 +57,40 @@ form label.sbs{
 
 form button.submitBtn {
     border: none;
-    background-color: var(--darkRed);
+    background-color: #9c2c13;
     color: white;
     border-radius: 1rem;
     padding: .75rem 1.5rem;
-    margin: 1rem 0 2rem 2%;
+    margin: auto 0;
     width: 96%;
     max-width: 20rem;
+    margin-bottom: 1rem;
 }
 
 form label.top input:required {
-    border-left: var(--darkRed) solid 6px;
+    border-left: var(--vermilion) solid 6px;
 }
 
-form label.top input:required:valid{
-    border-left: var(--confirmation-green) solid 6px;
+form label.top input:required:valid {
+    border-left: green solid 6px;
 }
 
-#formmessage {
-    display: none;
+form textarea {
+    width: 20.5rem;
+    height: 150px;
+    padding: .65rem;
+    box-sizing: border-box;
+    border: 1px solid var(--eerie-black);
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: .8rem;
+    resize: none;
 }
 
-main{
-    min-height: 30rem;
+section {
+    max-width: 23rem;
+}
+
+.img {
+    margin: auto 0 ;
 }
