@@ -1,0 +1,79 @@
+:root{
+    --darkRed: #9c2c13;
+    --formBlue: #445ba9;
+    --confirmation-green: #179220;
+}
+
+main{
+    display: block;
+}
+
+.form {
+    margin-top: 0;
+    color: black;
+    text-align: center;
+}
+
+form fieldset {
+    margin: 0;
+    border: 1px solid var(--formBlue);
+    border-radius: 10px;
+    padding: .5rem 2%;
+}
+form legend{
+    color: #445ba9;
+    margin: 0 1rem;;
+    padding: 0 .5rem;
+}
+
+form label.top,form div{
+    display: block;
+    padding-top: 1rem;
+    color: #9c2c13;
+    font-size: .8rem;
+}
+
+form label.top input, form label.top select{
+    display: block;
+    font-size: 1rem;
+    border: solid 1px #999;
+    border-radius: 4px;
+    padding: .75rem;
+    color: #555;
+    width: 100%;
+    max-width: 20rem;
+    background-color: rgba(0,0,0,0.1);
+}
+
+form label.sbs{
+    display: block;
+    padding: .75rem 0;
+    color: #555;
+}
+
+form button.submitBtn {
+    border: none;
+    background-color: var(--darkRed);
+    color: white;
+    border-radius: 1rem;
+    padding: .75rem 1.5rem;
+    margin: 1rem 0 2rem 2%;
+    width: 96%;
+    max-width: 20rem;
+}
+
+form label.top input:required {
+    border-left: var(--darkRed) solid 6px;
+}
+
+form label.top input:required:valid{
+    border-left: var(--confirmation-green) solid 6px;
+}
+
+#formmessage {
+    display: none;
+}
+
+main{
+    min-height: 30rem;
+}
