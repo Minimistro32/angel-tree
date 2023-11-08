@@ -9,24 +9,40 @@ html
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Literata")
 
   body
-    h1 The<br>Giving Tree
-    if count > 15
-        h2 Gifts Given
-        div #{count}
-    img(src="/images/tree.png", width="100px")
+    header 
+      h1
+        div(class="cursive") Welcome
+        div(class="capital-font") TO THE
+        div(class="type-font") GIVING TREE
+
+    //- if count > 15
+    //-     h2 Gifts Given
+    //-     div #{count}
+    //- img(src="/images/tree.png", width="100px")
+    main 
+      section 
+        div(class="relative")
+          img(class="image", src="/images/treeArtWorkClean-resized.webp", width="375", alt="Christmas Tree")
+          div(class="content-stars")
+            div(class="star-1 stars")
+            div(class="star-2 stars")
+            div(class="star-3 stars")
+        
+        div(class="donate-btns")
+          ul
+            li(class="donate-btns")
+              a(href = `${nextUrl}`, class="button") Sponsor Kid
+            li(class="donate-btns")
+              a(href='/contribute/', class="button") Donate
     
-    a(href = `${nextUrl}`)
-      button Pick a Gift!
-    a(href='/contribute/')
-      button Contribute Directly
+    footer 
+      //- p The Giving Tree is modeled after traditional angel trees that are common around the Holiday season. With our community larger than one physical location we wanted to take the experience digital!
 
-    p The Giving Tree is modeled after traditional angel trees that are common around the Holiday season. With our community larger than one physical location we wanted to take the experience digital!
+      //- p We hope you will find joy in “taking a name” off of the tree and “wrapping a gift” to give to someone in need. Click the “take a name” button under the tree and get started shopping for a friend who has been nominated by someone in our community, and we will make sure your gift is wrapped and gifted to them with a little note from you. 
 
-    p We hope you will find joy in “taking a name” off of the tree and “wrapping a gift” to give to someone in need. Click the “take a name” button under the tree and get started shopping for a friend who has been nominated by someone in our community, and we will make sure your gift is wrapped and gifted to them with a little note from you. 
+      //- p Or if your time is limited, feel free to donate directly to the pool and we will make sure your funds get divvied to someone who has been nominated.
 
-    p Or if your time is limited, feel free to donate directly to the pool and we will make sure your funds get divvied to someone who has been nominated.
-
-    p
-      strong Note to self:
-      br
-      Black text Helvetica font, Hexadecimal color background ead3c7
+      //- p
+      //-   strong Note to self:
+      //-   br
+      //-   Black text Helvetica font, Hexadecimal color background ead3c7
