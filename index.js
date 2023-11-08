@@ -34,14 +34,14 @@ server.get("/", (_, res) => {
       console.log(err);
     })
     .finally(() => {
-      // res.render("index", data);
-      res.sendFile(__dirname + "/public/pages/index.html");
+      res.render("index", data);
+      // res.sendFile(__dirname + "/public/pages/index.html");
     })
   })
   .catch(err => {
     console.log(err);
-    // res.render("index", data);
-    res.sendFile(__dirname + "/public/pages/index.html");
+    res.render("index", data);
+    // res.sendFile(__dirname + "/public/pages/index.html");
   })
 });
 
