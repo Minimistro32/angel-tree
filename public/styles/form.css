@@ -94,3 +94,21 @@ section {
 .img {
     margin: auto 0 ;
 }
+
+.red {
+    color: var(--vermilion);
+}
+
+.card h3{
+    text-decoration: underline;
+}
+.card h4 {
+    padding-left: 1rem;
+    margin-bottom: 0;
+}
+
+.card p, .card a {
+    padding-left: 2rem;
+    margin-top: .1rem;
+}
+

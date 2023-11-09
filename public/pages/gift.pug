@@ -16,38 +16,39 @@
 
 <body>
     <header>
+        <p class="venmo">Venmo: @giving-tree</p>
         <h1>
-            <div class="cursive">Donate</div>
-            <div class="capital-font"> TO THE </div>
+            <div class="cursive">Take a Name</div>
+            <div class="capital-font"> FROM THE </div>
             <div class="type-font">GIVING TREE</div>
         </h1>
     </header>
     <main>
-    <section class="card">
-      <h2>Gift Information</h2>
+    <section class="card donation-info">
+      <h2>Our Friend’s Need</h2>
+        if desc
+          h3 #{desc}
       if img
-        img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="img")
-      if desc
-        h3 What this Kid is Hoping For: 
-        p #{desc}
+        img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="center")
+      //- THIS PART NEEDS TO BECOME A RANGE
       if suggest_price
-        h3 Suggested Donation Amount: 
-        p #{suggest_price}
+        h4 Suggested Donation
+        p $#{suggest_price} - $#{suggest_price}
       if url
-        h3 An example of what the Child is hoping for: 
-        p #{url}
+        h4 An Example
+        a(href = `${url}`) #{url}
       </section>
 
       <form action="thankyou.html" method="post">
             <fieldset>
                 <legend>Claim this Gift</legend>
-                <label class="top" for="commit_price">Donation Amount:* <input type="number" name="commit_price" min=0, step="any" required></label>
-                <label class="top" for="url">URL to Gift: <input type="url" id="url" name="url"></label>
+                <p class="formmsg"><strong class = "red">Important!</strong> - Provide an Amazon link (gift) to be purchased with your donation. This protects the anonymity of the recipient.</p>
+                <label class="top" for="commit_price">Donation Amount ($):* <input class="donation-amount" type="number" name="commit_price" min=0, step="any" placeholder="Ex: 50.00" required></label>
+                <label class="top" for="url">Amazon URL to Gift: <input type="url" id="url" name="url" placeholder="https://www.amazon.com/"></label>
                 <label class="top" for="delivery_msg">Message to the Friend You're Sponsoring: <br> <textarea name="delivery_msg" cols="70" rows="10"></textarea></label>
-                <label class="top" for="email">venmo* <input type="venmo" id="venmo" name="venmo" required placeholder="Put your Venmo Here" ></label>
+                <label class="top" for="email">Venmo (We'll Venmo Request You)* <input type="venmo" id="venmo" name="venmo" required placeholder="Put your Venmo Here" ></label>
             </fieldset>
-            <button type="submit" value="Claim" class="submitBtn" id="">Sponsor Kid</button>
-            
+            <button type="submit" value="Claim" class="submitBtn" id="">Sponsor my Friend</button>
       </form>
 
       <div class="donate-btns">
