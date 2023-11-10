@@ -28,15 +28,16 @@
       <h2>Our Friend’s Need</h2>
       if img
         img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="center")
-        if desc
-          h3 #{desc}
-      //- THIS PART NEEDS TO BECOME A RANGE
+      if title
+        h3 #{title}
+      if desc
+        p #{desc}
       if suggest_price
         h4 Suggested Donation
-        p $#{suggest_price} - $#{suggest_price}
+        p $#{suggest_price} - $#{max_suggest_price}
       if url
         h4 An Example
-        a(href = `${url}`) #{url}
+        a(href = `${url}`) Link
       </section>
 
       <form action="thankyou.html" method="post">
