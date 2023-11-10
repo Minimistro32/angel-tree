@@ -34,7 +34,8 @@ server.get("/", (_, res) => {
       console.log(err);
     })
     .finally(() => {
-      res.render("index", data);
+      // res.render("claimed", data);
+      res.render("index", data); // ! This the Actual
       // res.sendFile(__dirname + "/public/pages/index.html");
     })
   })
