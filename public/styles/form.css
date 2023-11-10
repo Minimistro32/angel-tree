@@ -57,7 +57,7 @@ form label.sbs {
 
 form button.submitBtn {
     border: none;
-    background-color: #9c2c13;
+    background-color: var(--vermilion);
     color: white;
     border-radius: 1rem;
     padding: .75rem 1.5rem;
