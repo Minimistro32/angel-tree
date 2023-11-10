@@ -26,12 +26,10 @@
     <main>
     <section class="card donation-info">
       <h2>Our Friend’s Need</h2>
-      if desc
-          h3 #{desc}
-      if img
-        img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="center")
       if title
         h3 #{title}
+      if img
+        img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="center")
       if desc
         p #{desc}
       if suggest_price
