@@ -36,7 +36,7 @@ async function select(id, columns=null) {
 
 async function selectUnclaimed(exclude=null) {
     if (exclude === null) {
-        return await db('gift').whereNull('venmo');
+        return await db('gift').whereNull('venmo'); //if we have their venmo we can charge them
     } else {
         return await db('gift').whereNull('venmo').whereNot('id', exclude);
     }

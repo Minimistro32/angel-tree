@@ -1,0 +1,114 @@
+:root {
+    margin: 0;
+    padding: 0;
+    /* CSS HEX */
+    --vermilion: #dc4333ff;
+    --white: #ffffffff;
+    --pale-dogwood: #efd2c5ff;
+    --eerie-black: #1b2021ff;
+    --dark-spring-green: #306b34ff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form fieldset {
+    margin: 1rem 0;
+    border: 1px solid var(--eerie-black);
+    border-radius: 10px;
+    padding: .5rem 2%;
+    width: 21rem;
+}
+
+form legend {
+    color: var(--eerie-black);
+    margin: 0 1rem;
+    padding: 0 .5rem;
+}
+
+form label.top,
+form div {
+    display: block;
+    padding-top: 1rem;
+    color: var(--vermilion);
+    font-size: .8rem;
+}
+
+form label.top input {
+    display: block;
+    font-size: 1rem;
+    border: solid 1px #999;
+    border-radius: 4px;
+    padding: .75rem;
+    color: #555;
+    width: 100%;
+    max-width: 19rem;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+form label.sbs {
+    display: block;
+    padding: .75rem 0;
+    color: #555;
+}
+
+form button.submitBtn {
+    border: none;
+    background-color: var(--vermilion);
+    color: white;
+    border-radius: 1rem;
+    padding: .75rem 1.5rem;
+    margin: auto 0;
+    width: 96%;
+    max-width: 20rem;
+    margin-bottom: 1rem;
+}
+
+form label.top input:required {
+    border-left: var(--vermilion) solid 6px;
+}
+
+form label.top input:required:valid {
+    border-left: green solid 6px;
+}
+
+form textarea {
+    width: 20.5rem;
+    height: 150px;
+    padding: .65rem;
+    box-sizing: border-box;
+    border: 1px solid var(--eerie-black);
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: .8rem;
+    resize: none;
+}
+
+section {
+    max-width: 23rem;
+}
+
+.img {
+    margin: auto 0 ;
+}
+
+.red {
+    color: var(--vermilion);
+}
+
+.card h3{
+    text-decoration: underline;
+}
+.card h4 {
+    padding-left: 1rem;
+    margin-bottom: 0;
+}
+
+.card p, .card a {
+    padding-left: 2rem;
+    margin-top: .1rem;
+}
+

@@ -21,7 +21,7 @@ server.get("/", (_, res) => {
   .then(unclaimedGifts => {
 
     if (Object.keys(unclaimedGifts).length == 0) { //if unclaimedGifts is empty
-      data.nextUrl = "/claimed/";
+      data.nextUrl = "/allclaimed/";
     } else {
       data.nextUrl = '/gift/' + unclaimedGifts[Math.floor(Math.random() * unclaimedGifts.length)]["id"];
     }
@@ -34,12 +34,15 @@ server.get("/", (_, res) => {
       console.log(err);
     })
     .finally(() => {
-      res.render("index", data);
+      // res.render("claimed", data);
+      res.render("index", data); // ! This the Actual
+      // res.sendFile(__dirname + "/public/pages/index.html");
     })
   })
   .catch(err => {
     console.log(err);
     res.render("index", data);
+    // res.sendFile(__dirname + "/public/pages/index.html");
   })
 });
 
@@ -47,8 +50,12 @@ server.get("/contribute/", (_, res) => {
   res.sendFile(__dirname + "/public/pages/contribute.html");
 });
 
-server.get("/claimed/", (_, res) => {
+server.get("/allclaimed/", (_, res) => {
   res.sendFile(__dirname + "/public/pages/all_claimed.html");
+});
+
+server.get("/thanks/", (_, res) => {
+  res.sendFile(__dirname + "/public/pages/thanks.html");
 });
 
 function renderGift(id, res) {
@@ -57,7 +64,7 @@ function renderGift(id, res) {
     queries.selectUnclaimed(exclude=id)
     .then(unclaimedGifts => {
       if (Object.keys(unclaimedGifts).length == 0) { //if unclaimedGifts is empty
-        gift.nextUrl = "/claimed/";
+        gift.nextUrl = "/allclaimed/";
       } else {
         gift.nextUrl = '/gift/' + unclaimedGifts[Math.floor(Math.random() * unclaimedGifts.length)]["id"];
       }
@@ -86,7 +93,8 @@ server.get("/gift/:id", (req, res) => {
 
 server.post("/gift/:id", (req, res) => {
   queries.update(req.params.id, req.body)
-  renderGift(req.params.id, res);
+  res.redirect('/thanks')
+  // renderGift(req.params.id, res);
 });
 
 // REST Endpoints (Temp)

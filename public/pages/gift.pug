@@ -1,38 +1,73 @@
-doctype html
-html
-  head
-    title Gift #{id}
-  body
-    h1 Gift #{id}
-    if img
-      img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px")
-    if desc
-      p Description: #{desc}
-    if suggest_price
-      p Suggested Price: #{suggest_price}
-    if url
-      p URL: #{url}
+<!DOCTYPE html>
+<html lang="en">
 
-    hr
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giving Tree</title>
+    <link rel="stylesheet" type="text/css" href="../styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Literata">
+</head>
 
-    form(method="post")
-      fieldset 
-        legend Claim this Gift
-        label(for="commit_price") Price:
-        input(type="number", name="commit_price", min=0, step="any")
-        if !url
-          label(for="url") URL:
-          input(type="url", name="url")
-        label(for="delivery_msg") Delivery Msg:
-        textarea(name="delivery_msg", cols="30", rows="1") 
-        label(for="venmo") Venmo:
-        input(type="text", name="venmo", required)
-        
-        input(type="submit", value="Claim")
+<body>
+    <header>
+        <p class="venmo">Venmo: @giving-tree</p>
+        <h1>
+            <div class="cursive">Take a Name</div>
+            <div class="capital-font"> FROM THE </div>
+            <div class="type-font">GIVING TREE</div>
+        </h1>
+    </header>
+    <main>
+    <section class="card donation-info">
+      <h2>Our Friend’s Need</h2>
+      if title
+        h3 #{title}
+      if img
+        img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="center")
+      if desc
+        p #{desc}
+      if suggest_price
+        h4 Suggested Donation
+        p $#{suggest_price} - $#{max_suggest_price}
+      if url
+        h4 An Example
+        a(href = `${suggest_url}`) Link
+      </section>
 
-    hr
+      <form method="post">
+            <fieldset>
+                <legend>Claim this Gift</legend>
+                <p class="formmsg"><strong class = "red">Important!</strong> - Provide an <u>Amazon link</u> to the gift you want to be purchased with your donation. This allows us to purchase the gift you wish, while protecting the anonymity of the recipient.</p>
+                //-https://stackoverflow.com/questions/17891714/how-to-create-a-dollar-amount-input-field-in-an-html-form
+                <label class="top" for="commit_price">Donation Amount* <input class="donation-amount" type="number" name="commit_price" min=0, step="any" placeholder="The Amazon list price (e.g. $49.99)" required></label>
+                <label class="top" for="url">Link to the Gift on Amazon <input type="url" id="url" name="url" placeholder="https://www.amazon.com/your-gift" pattern="https?:\/\/(?=(?:....)?amazon|smile)(www|smile)\S+com(((?:\/(?:dp|gp)\/([A-Z0-9]+))?\S*[?&]?(?:tag=))?\S*?)(?:#)?(\w*?-\w{2})?(\S*)(#?\S*)+"></label>
+                <label class="top" for="delivery_msg">Gift Note <br> <textarea name="delivery_msg" cols="70" rows="10" placeholder="Enter a short message to the friend you're sponsoring here."></textarea></label>
+                <label class="top" for="venmo">Your Venmo Account*  <span style="font-size:.6rem">(We will Venmo request you)</span> <input type="venmo" id="venmo" name="venmo" required placeholder="@your_venmo" ></label>
+                //- <p class="formmsg"> We will make a Venmo request to your account and arrange for delivery.</p>
+            </fieldset>
+            <button type="submit" value="Claim" class="submitBtn" id="">Sponsor our Friend</button>
+      </form>
 
-    a(href = `${nextUrl}`)
-      button Pick a Gift!
-    a(href='/contribute/')
-      button Contribute Directly
+      <div class="donate-btns">
+        <ul>
+          <li>
+              a(href = `${nextUrl}`, class="button") Pick a Different Gift!
+              <a href="/" ></a>
+          </li>
+          <li>
+              <a href="/contribute/" class="button">Donate Directly</a>
+          </li>
+        </ul>
+        </div>
+    </main>
+</body>
+<footer>
+</footer>
+
+</html>
