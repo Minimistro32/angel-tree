@@ -4,7 +4,7 @@ const queries = require("./model/queries")
 
 // Initialize express app and port number
 const server = express();
-const port = 8081;
+const port = 8088;
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 

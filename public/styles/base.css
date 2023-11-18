@@ -4,7 +4,6 @@
         width: auto;
     }
 }
-
 :root {
     margin: 0;
     padding: 0;
@@ -15,7 +14,6 @@
     --eerie-black: #1b2021ff;
     --dark-spring-green: #306b34ff;
 }
-
 
 html,
 body,
