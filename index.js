@@ -4,7 +4,7 @@ const queries = require("./model/queries")
 
 // Initialize express app and port number
 const server = express();
-const port = 8088;
+const port = 8081;
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 
@@ -71,19 +71,23 @@ function renderGift(id, res) {
     })
     .catch(err => {
       console.log(err);
-      gift.nextUrl = '/'
+      res.redirect('/thanks') //convenient 404 page
     })
     .finally(() => {
-      if (gift["venmo"] != null) {
-        res.render("claimed", gift);
+      if (typeof gift === 'undefined') {
+        res.redirect('/thanks') //convenient 404 page
       } else {
-        res.render("gift", gift);
+        if (gift["venmo"] != null) {
+          res.render("claimed", gift);
+        } else {
+          res.render("gift", gift);
+        }
       }
     })
   })
   .catch(err => {
     console.log(err);
-    //TODO: add error page
+    res.redirect('/thanks') //convenient 404 page
   })
 }
 
@@ -94,7 +98,6 @@ server.get("/gift/:id", (req, res) => {
 server.post("/gift/:id", (req, res) => {
   queries.update(req.params.id, req.body)
   res.redirect('/thanks')
-  // renderGift(req.params.id, res);
 });
 
 // REST Endpoints (Temp)
