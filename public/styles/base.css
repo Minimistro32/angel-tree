@@ -145,6 +145,7 @@ ul {
     display: inline-block;
     font-size: 16px;
     margin-bottom: .5rem;
+    border-radius: 6px;
 }
 
 .relative {
