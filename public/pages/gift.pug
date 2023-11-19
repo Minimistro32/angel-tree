@@ -38,7 +38,7 @@
         h4 Suggested Donation
         p $#{suggest_price} - $#{max_suggest_price}
       if suggest_url
-        a(href = `${suggest_url}`)
+        a(href = `${suggest_url}` style="margin: 0px; padding: 0px;")
           img(src=`/images/amazon.png`, width="280px", class="center")
       </section>
 
@@ -60,7 +60,6 @@
         <ul>
           <li>
               a(href = `${nextUrl}`, class="button") Pick a<br>Different Gift!
-              <a href="/" ></a>
           </li>
           <li>
               <a href="/contribute/" class="button">Donate<br>Directly</a>
