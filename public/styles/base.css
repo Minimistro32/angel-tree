@@ -263,3 +263,7 @@ footer {
     left: 10px;
     color: white;
 }
+
+.banner-link {
+    text-decoration: none;
+}
