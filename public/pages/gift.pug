@@ -30,13 +30,27 @@
       <h2>Our Friend’s Need</h2>
       if title
         h3 #{title}
+
       if img
         img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="center")
+
       if desc
         p #{desc}
+
+      if age && gender
+        h4 Recipient
+        p #{age} #{gender}
+      else if gender
+        h4 Recipient
+        p #{gender}
+      else if age
+        h4 Recipient
+        p #{age}
+
       if suggest_price
         h4 Suggested Donation
         p $#{suggest_price} - $#{max_suggest_price}
+
       if suggest_url
         a(href = `${suggest_url}` style="margin: 0px; padding: 0px;")
           img(src=`/images/amazon.png`, width="280px", class="center")
