@@ -35,9 +35,9 @@
       if suggest_price
         h4 Suggested Donation
         p $#{suggest_price} - $#{max_suggest_price}
-      if url
-        h4 An Example
-        a(href = `${suggest_url}`) Link
+      if suggest_url
+        a(href = `${suggest_url}`)
+          img(src=`/images/amazon.png`, width="280px", class="center")
       </section>
 
       <form method="post">
