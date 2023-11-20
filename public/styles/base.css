@@ -113,8 +113,8 @@ section {
 .image {
     display: block;
     margin: auto;
-    /* padding-right: 3rem; */
     padding-top: 1rem;
+    rotate:-2deg;
 }
 
 .donate-btns {
