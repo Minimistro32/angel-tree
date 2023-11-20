@@ -4,9 +4,10 @@
         width: auto;
     }
 }
+
 :root {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     /* CSS HEX */
     --vermilion: #dc4333ff;
     --white: #ffffffff;
@@ -15,11 +16,13 @@
     --dark-spring-green: #306b34ff;
 }
 
+
+
 html,
 body,
 h1 {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 header {
@@ -36,7 +39,7 @@ body {
     background-color: #f8f8f8;
 }
 
-body{
+body {
     font-family: "Literata";
 }
 
@@ -114,11 +117,16 @@ section {
     display: block;
     margin: auto;
     padding-top: 1rem;
-    rotate:-2deg;
+    rotate: -2deg;
 }
 
 .donate-btns {
     text-align: center;
+}
+
+.donate-btns-home {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 ul {
@@ -237,26 +245,26 @@ footer {
     text-align: center;
     vertical-align: center;
     text-decoration: none;
-  }
-  
-  /* Add a hover effect if you want */
-  .fa:hover {
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
     opacity: 0.7;
-  }
-  
-  /* Set a specific color for each brand */
-  
-  /* Facebook */
-  .fa-facebook {
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
     background: #3B5998;
     color: white;
-  }
+}
 
-  /* Twitter */
+/* Twitter */
 .fa-instagram {
     background: rgb(136, 18, 183);
     color: white;
-  }
+}
 
 .venmo {
     position: fixed;
@@ -267,4 +275,13 @@ footer {
 
 .banner-link {
     text-decoration: none;
+}
+
+.reset {
+    display: block;
+    line-height: 0%;
+}
+
+.form-venmo span {
+    font-size: .6rem;
 }

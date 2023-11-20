@@ -52,8 +52,8 @@
         p $#{suggest_price} - $#{max_suggest_price}
 
       if suggest_url
-        a(href = `${suggest_url}` style="margin: 0px; padding: 0px;")
-          img(src=`/images/amazon.webp`, width="280px", class="center")
+        a(href = `${suggest_url}`, class="reset")
+        img(src=`/images/amazon.webp`, width="280px", class="center")
       </section>
 
       <form method="post">
@@ -64,7 +64,7 @@
                 <label class="top" for="commit_price">Donation Amount* <input class="donation-amount" type="number" name="commit_price" min=0, step="any" placeholder="The Amazon list price (e.g. $49.99)" required></label>
                 <label class="top" for="url">Link to the Gift on Amazon <input type="url" id="url" name="url" placeholder="https://www.amazon.com/your-gift" pattern="https?:\/\/(?=(?:....)?amazon|smile)(www|smile)\S+com(((?:\/(?:dp|gp)\/([A-Z0-9]+))?\S*[?&]?(?:tag=))?\S*?)(?:#)?(\w*?-\w{2})?(\S*)(#?\S*)+"></label>
                 <label class="top" for="delivery_msg">Gift Note <br> <textarea name="delivery_msg" cols="70" rows="10" placeholder="Enter a short message to the friend you're sponsoring here."></textarea></label>
-                <label class="top" for="venmo">Your Venmo Account*  <span style="font-size:.6rem">(We will Venmo request you)</span> <input type="venmo" id="venmo" name="venmo" required placeholder="@your_venmo" ></label>
+                <label class="top form-venmo" for="venmo">Your Venmo Account*  <span>(We will Venmo request you)</span> <input type="venmo" id="venmo" name="venmo" required placeholder="@your_venmo" ></label>
                 //- <p class="formmsg"> We will make a Venmo request to your account and arrange for delivery.</p>
             </fieldset>
             <button type="submit" value="Claim" class="submitBtn" id="">Sponsor our Friend</button>
