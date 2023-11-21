@@ -15,8 +15,12 @@ main {
     align-items: center;
 }
 
+form {
+    min-width: 372px;
+}
+
 form fieldset {
-    margin: 1rem 0;
+    margin: 1rem auto;
     border: 1px solid var(--eerie-black);
     border-radius: 10px;
     padding: .5rem 2%;
@@ -61,7 +65,7 @@ form button.submitBtn {
     color: white;
     border-radius: 1rem;
     padding: .75rem 1.5rem;
-    margin: auto 0;
+    margin: 0 auto;
     width: 96%;
     max-width: 20rem;
     margin-bottom: 1rem;

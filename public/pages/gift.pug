@@ -55,13 +55,13 @@
 
       if suggest_url
         a(href = `${suggest_url}`, class="reset")
-        img(src=`/images/amazon.webp`, width="280px", class="center")
+          img(src=`/images/amazon.webp`, width="280px", class="center")
       </section>
 
       <form method="post">
             <fieldset>
                 <legend>Claim this Gift</legend>
-                <p class="formmsg"><strong class = "red">Important!</strong> - Provide an <u>Amazon link</u> to the gift you want to be purchased with your donation. This allows us to purchase the gift you wish, while protecting the anonymity of the recipient.</p>
+                <p class="formmsg"><strong class = "red">Important!</strong> - Provide an <i>Amazon link</i> to the gift you want to be purchased with your donation. This allows us to purchase the gift you wish, while protecting the anonymity of the recipient.</p>
                 //-https://stackoverflow.com/questions/17891714/how-to-create-a-dollar-amount-input-field-in-an-html-form
                 <label class="top" for="commit_price">Donation Amount* <input class="donation-amount" type="number" name="commit_price" min=0, step="any" placeholder="The Amazon list price (e.g. $49.99)" required></label>
                 <label class="top" for="url">Link to the Gift on Amazon <input type="url" id="url" name="url" placeholder="https://www.amazon.com/your-gift" pattern="https?:\/\/(?=(?:....)?amazon|smile)(www|smile)\S+com(((?:\/(?:dp|gp)\/([A-Z0-9]+))?\S*[?&]?(?:tag=))?\S*?)(?:#)?(\w*?-\w{2})?(\S*)(#?\S*)+"></label>
@@ -69,7 +69,7 @@
                 <label class="top form-venmo" for="venmo">Your Venmo Account*  <span>(We will Venmo request you)</span> <input type="venmo" id="venmo" name="venmo" required placeholder="@your_venmo" ></label>
                 //- <p class="formmsg"> We will make a Venmo request to your account and arrange for delivery.</p>
             </fieldset>
-            <button type="submit" value="Claim" class="submitBtn" id="">Sponsor our Friend</button>
+            <button type="submit" value="Claim" class="submitBtn center" id="">Sponsor our Friend</button>
       </form>
 
       <div class="donate-btns">
