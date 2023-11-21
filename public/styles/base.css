@@ -125,8 +125,7 @@ section {
 }
 
 .donate-btns-home {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 ul {
@@ -222,11 +221,19 @@ ul {
     }
 }
 
-footer {
+/* OG RED FOOTER */
+/* footer {
     width: 100vw;
     height: 9rem;
     background: var(--vermilion);
     margin-top: 2rem;
+} */
+
+footer {
+    width: 100vw;
+    height: 9rem;
+    background: var(--vermilion);
+    margin-top: 1rem;
 }
 
 .center {
