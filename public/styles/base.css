@@ -9,11 +9,12 @@
     margin: 0px;
     padding: 0px;
     /* CSS HEX */
-    --vermilion: #dc4333ff;
-    --white: #ffffffff;
-    --pale-dogwood: #efd2c5ff;
-    --eerie-black: #1b2021ff;
-    --dark-spring-green: #306b34ff;
+    --vermilion: #dc4333;
+    --white: #ffffff;
+    --pale-dogwood: #efd2c5;
+    --eerie-black: #1b2021;
+    --dark-spring-green: #306b34;
+    --background: #f8f8f8;
 }
 
 
@@ -36,7 +37,7 @@ header {
 body {
     /* background-image: linear-gradient(60deg, #ffffffff, #ffffffff, #ffffffff, #ffffffff, #efd2c5ff, #efd2c5ff); */
     /* background-color: rgb(250, 255, 250); //#f8f8f8; */
-    background-color: #f8f8f8;
+    background-color: var(--background);
 }
 
 body {
@@ -154,6 +155,7 @@ ul {
     margin-bottom: .5rem;
     border-radius: 6px;
     width: 9rem;
+    margin-top: 1rem;
 }
 
 .relative {
@@ -170,8 +172,16 @@ ul {
 
 .stars {
     position: absolute;
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    animation-iteration-count: infinite;
+}
+
+.stars-smaller {
+    position: absolute;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     animation-iteration-count: infinite;
 }
@@ -179,7 +189,7 @@ ul {
 .star-1 {
     background-color: var(--vermilion);
     top: 58%;
-    left: 57%;
+    left: 65%;
     animation-name: twinkle-1;
     animation-duration: 1s;
 }
@@ -195,7 +205,23 @@ ul {
 .star-3 {
     background-color: var(--dark-spring-green);
     top: 85%;
-    left: 39%;
+    left: 30%;
+    animation-name: twinkle-3;
+    animation-duration: 1s;
+}
+
+.star-4 {
+    background-color: #3b719f;
+    top: 74%;
+    left: 55%;
+    animation-name: twinkle-3;
+    animation-duration: 1s;
+}
+
+.star-5 {
+    background-color: #3b719f;
+    top: 45%;
+    left: 42%;
     animation-name: twinkle-3;
     animation-duration: 1s;
 }
@@ -221,6 +247,20 @@ ul {
     }
 }
 
+@keyframes twinkle-4 {
+    3% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+}
+
+@keyframes twinkle-5 {
+    90% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+}
+
 /* OG RED FOOTER */
 /* footer {
     width: 100vw;
@@ -231,9 +271,55 @@ ul {
 
 footer {
     width: 100vw;
-    height: 9rem;
     background: var(--vermilion);
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-upper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: black;
+    height: 7rem;
+}
+
+.footer-upper a {
+    padding: 1rem;
+}
+
+.footer-upper a:nth-child(odd) {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.footer-upper a:nth-child(even) {
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.footer-lower div {
+    display: flex;
+    flex-direction: column;
+    background: var(--vermilion);
+    height: 7rem;
+    columns: black;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    /* text-align: center;
+    vertical-align: middle; */
+}
+
+.footer-lower strong {
+    margin-top: 1rem;
+    text-align: center !important;
 }
 
 .center {
@@ -301,4 +387,15 @@ footer {
 
 .form-venmo span {
     font-size: .6rem;
+}
+
+.venmo a:link,
+.venmo a:visited,
+.venmo a:active,
+.venmo a:hover,
+footer a:link,
+footer a:visited,
+footer a:active,
+.footer a:hover {
+    color: white;
 }
