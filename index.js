@@ -1,10 +1,11 @@
+require("dotenv").config();
 const express = require('express');
 const path = require("path");
 const queries = require("./model/queries")
 
 // Initialize express app and port number
 const server = express();
-const port = 8081;
+const port = process.env.PORT || 8081;
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 
