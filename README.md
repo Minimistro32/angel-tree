@@ -6,6 +6,11 @@ We hope you will find joy in "taking a name" off of the tree and "wrapping a gif
 
 Or if your time is limited, feel free to donate directly to the pool and we will make sure your funds get divvied out to someone who has been nominated.
 
+<a href="https://instagram.com/jalynn.wightman?igshid=NzZlODBkYWE4Ng==" target="_blank">Instagram</a>
+                <a href="https://venmo.com/u/givingtree_jalynn" target="_blank">Venmo</a>
+                <a href="mailto:JaLynn.Wightman@icloud.com">Contact Us</a>
+                <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MjQ4MDA5MjU0MjI5MjM5?igshid=ODhhZWM5NmIwOQ==" target="_blank">My Story</a>
+
 # Technologies
 
 * Knex
