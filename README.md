@@ -1,3 +1,11 @@
+# The Giving Tree
+
+The Giving Tree is modeled after traditional angel trees that are common around the Holiday season. With our community larger than one physical location we wanted to take the experience digital!
+
+We hope you will find joy in "taking a name" off of the tree and "wrapping a gift" to give to someone in need. Click the "take a name" button under the tree and get started shopping for a friend who has been nominated by someone in our community, and we will make sure your gift is wrapped and gifted to them wich a little note from you.
+
+Or if your time is limited, feel free to donate directly to the pool and we will make sure your funds get divvied out to someone who has been nominated.
+
 # Technologies
 
 * Knex
