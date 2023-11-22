@@ -53,7 +53,11 @@
 
       if suggest_price
         h4 Suggested Donation
-        p $#{suggest_price} - $#{max_suggest_price}
+        if max_suggest_price
+          p $#{suggest_price} - $#{max_suggest_price}
+        else
+          p $#{suggest_price}
+
 
       if suggest_url
         a(href = `${suggest_url}`, class="reset")
