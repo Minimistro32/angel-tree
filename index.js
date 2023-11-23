@@ -6,6 +6,7 @@ const queries = require("./model/queries")
 // Initialize express app and port number
 const server = express();
 const port = process.env.PORT || 8081;
+const rest_enabled = (process.env.REST_ENABLED || "true") === "true"
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 
@@ -101,78 +102,80 @@ server.post("/gift/:id", (req, res) => {
   res.redirect('/thanks')
 });
 
-// REST Endpoints (Temp)
-// gift/id
-server.get("/api/gift/:id", (req, res) => {
-  queries.select(req.params.id)
-  .then(gift => {
-    res.status(200).json(gift);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({message: "Query select failed. GET /api/gift/"+req.params.id});
-  })
-});
+if (rest_enabled) {
+  // REST Endpoints
+  // gift/id
+  server.get("/api/gift/:id", (req, res) => {
+    queries.select(req.params.id)
+    .then(gift => {
+      res.status(200).json(gift);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({message: "Query select failed. GET /api/gift/"+req.params.id});
+    })
+  });
 
-server.patch("/api/gift/:id", (req, res) => {
-  queries.update(req.params.id, req.body)
-  .then(gift => {
-    if (gift) {
+  server.patch("/api/gift/:id", (req, res) => {
+    queries.update(req.params.id, req.body)
+    .then(gift => {
+      if (gift) {
+        res.status(204).json();
+      } else {
+        res.status(404).json({message: "Record not found. PATCH /api/gift/"+req.params.id});
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({message: "Query update failed. PATCH /api/gift/"+req.params.id});
+    })
+  });
+
+  server.delete("/api/gift/:id", (req, res) => {
+    queries.del(req.params.id)
+    .then(_ => {
       res.status(204).json();
-    } else {
-      res.status(404).json({message: "Record not found. PATCH /api/gift/"+req.params.id});
-    }
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({message: "Query update failed. PATCH /api/gift/"+req.params.id});
-  })
-});
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({message: "Query del failed. DELETE /api/gift/"+req.params.id});
+    })
+  });
 
-server.delete("/api/gift/:id", (req, res) => {
-  queries.del(req.params.id)
-  .then(_ => {
-    res.status(204).json();
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({message: "Query del failed. DELETE /api/gift/"+req.params.id});
-  })
-});
+  // gift
+  server.post("/api/gift", (req, res) => {
+    queries.create(req.body)
+    .then(gift => {
+      res.status(200).json(gift);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({message: "Query create failed. POST /api/gift"});
+    })
+  });
 
-// gift
-server.post("/api/gift", (req, res) => {
-  queries.create(req.body)
-  .then(gift => {
-    res.status(200).json(gift);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({message: "Query create failed. POST /api/gift"});
-  })
-});
+  server.get("/api/gift", (_, res) => {
+    queries.selectAll()
+    .then(gifts => {
+      res.status(200).json(gifts);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({message: "Query selectAll failed. GET /api/gift"});
+    })
+  });
 
-server.get("/api/gift", (_, res) => {
-  queries.selectAll()
-  .then(gifts => {
-    res.status(200).json(gifts);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({message: "Query selectAll failed. GET /api/gift"});
-  })
-});
-
-server.delete("/api/gift", (_, res) => {
-  queries.truncate()
-  .then(_ => {
-    res.status(204).json();
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({message: "Query truncate failed. DELETE /api/gift"});
-  })
-});
+  server.delete("/api/gift", (_, res) => {
+    queries.truncate()
+    .then(_ => {
+      res.status(204).json();
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({message: "Query truncate failed. DELETE /api/gift"});
+    })
+  });
+}
 
 // Start server.
 server.listen(port, () => {
