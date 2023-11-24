@@ -15,8 +15,9 @@ module.exports = {
 // CREATE
 async function create(gift) {
     console.log("DB CREATE\n", gift);
-    const [id] = await db('gift').insert(gift);
-    return id;
+    return await db('gift').insert(gift, ['id', 'title']);
+    // const [id] = await db('gift').insert(gift);
+    // return id;
 }
 
 // READ
