@@ -4,9 +4,9 @@
  */
 exports.up = function(knex) {
     return knex.schema.alterTable('gift', (table) =>  {
-        table.text('desc').alter();
-        table.text('title').alter();
-        table.text('sob_story').alter();
+        table.text('desc', 1000).alter();
+        table.text('title', 1000).alter();
+        table.text('sob_story', 1000).alter();
     });
 };
 
