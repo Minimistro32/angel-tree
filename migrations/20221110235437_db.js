@@ -6,10 +6,10 @@ exports.up = function(knex) {
     return knex.schema.createTable('gift', (table) =>  {
         table.increments('id');
         table.string('img');
-        table.string('desc');
+        table.string('desc', 2000);
         table.float('suggest_price');
         table.timestamps(true, true)
-        table.string('url');
+        table.string('url', 2000);
         table.string('delivery_msg');
         table.float('commit_price');
         table.string('venmo');

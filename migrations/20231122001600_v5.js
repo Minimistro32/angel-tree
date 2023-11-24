@@ -4,7 +4,7 @@
  */
 exports.up = function(knex) {
     return knex.schema.alterTable('gift', function (table) {
-        table.string('sob_story');
+        table.string('sob_story', 2000);
     })
 };
 

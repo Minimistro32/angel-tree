@@ -4,7 +4,7 @@
  */
 exports.up = function(knex) {
     return knex.schema.alterTable('gift', function (table) {
-        table.string('suggest_url');
+        table.string('suggest_url', 2000);
     })
 };
 

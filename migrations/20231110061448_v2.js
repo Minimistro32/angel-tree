@@ -5,7 +5,7 @@
 exports.up = function(knex) {
     return knex.schema.alterTable('gift', function (table) {
         table.float('max_suggest_price');
-        table.string('title');
+        table.string('title', 1000);
     })
 };
 
