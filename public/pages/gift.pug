@@ -35,7 +35,7 @@
         h3 #{title}
 
       if img
-        img(src=`/images/${img}`, alt=`Gift ${id}`, width="100px", class="center")
+        img(src=`/images/gifts/${img}`, alt=`Gift ${id}`, width="100px", class="center")
 
       if desc
         p #{desc}
@@ -56,7 +56,7 @@
         if max_suggest_price
           p $#{suggest_price} - $#{max_suggest_price}
         else
-          p $#{suggest_price}
+          p $#{suggest_price}+
 
 
       if suggest_url
