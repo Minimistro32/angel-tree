@@ -416,3 +416,7 @@ footer a:active,
 .footer a:hover {
     color: white;
 }
+
+#dynamic-img {
+    border-radius: 15px;
+}
