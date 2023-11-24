@@ -150,7 +150,7 @@ if (rest_enabled) {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({message: "Query create failed. POST /api/gift"});
+      res.status(500).json({message: "Query create failed. POST /api/gift." + err});
     })
   });
 
@@ -161,7 +161,7 @@ if (rest_enabled) {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({message: "Query selectAll failed. GET /api/gift"});
+      res.status(500).json({message: "Query selectAll failed. GET /api/gift." + err});
     })
   });
 
@@ -172,7 +172,7 @@ if (rest_enabled) {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({message: "Query truncate failed. DELETE /api/gift"});
+      res.status(500).json({message: "Query truncate failed. DELETE /api/gift." + err});
     })
   });
 }
