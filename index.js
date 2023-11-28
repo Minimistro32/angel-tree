@@ -165,6 +165,17 @@ if (rest_enabled) {
     })
   });
 
+  server.get("/api/gift/claimed", (_, res) => {
+    queries.selectClaimed()
+    .then(gifts => {
+      res.status(200).json(gifts);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({message: "Query selectAll failed. GET /api/gift." + err});
+    })
+  });
+
   server.delete("/api/gift", (_, res) => {
     queries.truncate()
     .then(_ => {

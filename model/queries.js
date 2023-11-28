@@ -5,6 +5,7 @@ module.exports = {
     create,
     select,
     selectAll,
+    selectClaimed,
     selectUnclaimed,
     countClaimed,
     update,
@@ -39,6 +40,10 @@ async function selectUnclaimed(exclude=null) {
     } else {
         return await db('gift').whereNull('venmo').whereNot('id', exclude);
     }
+}
+
+async function selectClaimed() {
+    return await db('gift').whereNotNull('venmo');
 }
 
 async function countClaimed() {
