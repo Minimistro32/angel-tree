@@ -43,7 +43,7 @@ async function selectUnclaimed(exclude=null) {
 }
 
 async function selectClaimed() {
-    return await db('gift').whereNotNull('venmo');
+    return await db('gift').select(['id', 'title', 'url', 'delivery_msg', 'commit_price', 'venmo']).whereNotNull('venmo');
 }
 
 async function countClaimed() {
