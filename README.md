@@ -13,9 +13,9 @@ Or if your time is limited, feel free to donate directly to the pool and we will
 
 
 ![Welcome Page](screenshots/welcome.png)
+![Donate Page](screenshots/donate.png)
 ![Gift Page](screenshots/gift.png)
 ![Form Page](screenshots/form.png)
-![Donate Page](screenshots/donate.png)
 
 # Technologies
 
