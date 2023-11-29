@@ -11,11 +11,18 @@ Or if your time is limited, feel free to donate directly to the pool and we will
                 <a href="mailto:JaLynn.Wightman@icloud.com">Contact Us</a>
                 <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MjQ4MDA5MjU0MjI5MjM5?igshid=ODhhZWM5NmIwOQ==" target="_blank">My Story</a>
 
+
+![Welcome Page](screenshots/welcome.png)
+![Gift Page](screenshots/gift.png)
+![Form Page](screenshots/form.png)
+![Donate Page](screenshots/donate.png)
+
 # Technologies
 
 * Knex
 * Node.js
 * Express.js
+* Pug
 * Heroku CLI
 
 # References
